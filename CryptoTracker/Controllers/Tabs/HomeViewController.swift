@@ -7,6 +7,7 @@
 
 import UIKit
 import MaterialComponents.MaterialCards
+import EFCountingLabel
 
 class HomeViewController: UIViewController {
 
@@ -16,6 +17,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var marketCapCard: MDCCard!
     @IBOutlet weak var lastDayCard: MDCCard!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var coinsLbl: EFCountingLabel!
+    @IBOutlet weak var marketsLbl: EFCountingLabel!
+    @IBOutlet weak var exchangesLbl: EFCountingLabel!
+    @IBOutlet weak var marketCapLbl: EFCountingLabel!
+    @IBOutlet weak var lastDayVolume: EFCountingLabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +40,12 @@ class HomeViewController: UIViewController {
             card?.setShadowElevation(ShadowElevation(rawValue: 10), for: .normal)
             card?.cornerRadius = 20
         }
+
+        coinsLbl.countFromZeroTo(1000, withDuration: 1)
+        marketsLbl.countFromZeroTo(1000, withDuration: 1)
+        exchangesLbl.countFromZeroTo(1000, withDuration: 1)
+        marketCapLbl.countFromZeroTo(1000, withDuration: 1)
+        lastDayVolume.countFromZeroTo(1000, withDuration: 1)
     }
 
     private func setupTable() {
@@ -48,12 +60,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //TODO: Table Cell
+        // TODO: Table Cell
         return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: Return length of exchanges array
+        // TODO: Return length of exchanges array
         return 0
     }
 }

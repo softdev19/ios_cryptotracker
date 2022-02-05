@@ -19,10 +19,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CryptoTracker" customModuleProvider="target">
             <connections>
+                <outlet property="coinsLbl" destination="z5d-g0-uKm" id="CAM-6r-Jkp"/>
                 <outlet property="exchangesCard" destination="EfC-zs-MWC" id="1MD-po-aq6"/>
+                <outlet property="exchangesLbl" destination="28T-fp-YCh" id="8bf-OL-Qa7"/>
                 <outlet property="lastDayCard" destination="k70-Mr-9WX" id="Lxd-Ne-18n"/>
+                <outlet property="lastDayVolume" destination="40C-1N-a3X" id="deN-5S-x7N"/>
                 <outlet property="marketCapCard" destination="tQk-We-lcE" id="vnh-Uh-Si1"/>
+                <outlet property="marketCapLbl" destination="vlh-5y-CZy" id="ZGU-jh-vhd"/>
                 <outlet property="marketsCard" destination="4zB-zE-A0q" id="1T9-w3-l2H"/>
+                <outlet property="marketsLbl" destination="ily-GY-Rr9" id="xyB-jT-wfH"/>
                 <outlet property="tableView" destination="TAM-q4-4QO" id="e0B-G4-Ggf"/>
                 <outlet property="totalCoinsCard" destination="VhJ-w7-zwA" id="YgR-Gj-YML"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -70,7 +75,7 @@
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-g0-uKm">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5d-g0-uKm" customClass="EFCountingLabel" customModule="EFCountingLabel">
                                                                     <rect key="frame" x="10" y="52.666666666666686" width="174.66666666666666" height="21.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="16"/>
                                                                     <color key="textColor" name="TextColor"/>
@@ -97,7 +102,7 @@
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ily-GY-Rr9">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ily-GY-Rr9" customClass="EFCountingLabel" customModule="EFCountingLabel">
                                                                     <rect key="frame" x="10" y="52.666666666666686" width="174.33333333333334" height="21.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="16"/>
                                                                     <color key="textColor" name="TextColor"/>
@@ -129,7 +134,7 @@
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28T-fp-YCh">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28T-fp-YCh" customClass="EFCountingLabel" customModule="EFCountingLabel">
                                                                     <rect key="frame" x="10" y="52.666666666666629" width="174.66666666666666" height="21.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="16"/>
                                                                     <color key="textColor" name="TextColor"/>
@@ -156,7 +161,7 @@
                                                                     <color key="textColor" name="TextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlh-5y-CZy">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlh-5y-CZy" customClass="EFCountingLabel" customModule="EFCountingLabel">
                                                                     <rect key="frame" x="10" y="52.666666666666629" width="174.33333333333334" height="21.333333333333329"/>
                                                                     <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="16"/>
                                                                     <color key="textColor" name="TextColor"/>
@@ -185,7 +190,7 @@
                                                             <color key="textColor" name="TextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40C-1N-a3X">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40C-1N-a3X" customClass="EFCountingLabel" customModule="EFCountingLabel">
                                                             <rect key="frame" x="10" y="52.666666666666686" width="374" height="21.333333333333329"/>
                                                             <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="16"/>
                                                             <color key="textColor" name="TextColor"/>
