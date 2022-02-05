@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A42CBFAD27AB745E0069FC45 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CBFAC27AB745E0069FC45 /* UIUtils.swift */; };
+		A42CBFB827AB7BC50069FC45 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CBFB627AB7BC50069FC45 /* SearchViewController.swift */; };
+		A42CBFB927AB7BC50069FC45 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */; };
+		A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */; };
+		A42CBFBD27AB7D0E0069FC45 /* WatchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */; };
 		A4DD9CAF27A8E4DF0006CA6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD9CAE27A8E4DF0006CA6E /* AppDelegate.swift */; };
 		A4DD9CB827A8E4E00006CA6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DD9CB727A8E4E00006CA6E /* Assets.xcassets */; };
 		A4DD9CBB27A8E4E00006CA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD9CB927A8E4E00006CA6E /* LaunchScreen.storyboard */; };
@@ -23,6 +28,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A42CBFAC27AB745E0069FC45 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		A42CBFB627AB7BC50069FC45 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
+		A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchListViewController.xib; sourceTree = "<group>"; };
 		A4DD9CAB27A8E4DF0006CA6E /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD9CAE27A8E4DF0006CA6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4DD9CB727A8E4E00006CA6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +61,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A42CBFB327AB794D0069FC45 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				A4DD9CC927A8E7C80006CA6E /* HomeViewController.swift */,
+				A42CBFB627AB7BC50069FC45 /* SearchViewController.swift */,
+				A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		A4DD9CA227A8E4DF0006CA6E = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +90,7 @@
 		A4DD9CAD27A8E4DF0006CA6E /* CryptoTracker */ = {
 			isa = PBXGroup;
 			children = (
-				A4E4E1FF27AA2CE1009C029C /* fonts */,
+				A4E4E1FF27AA2CE1009C029C /* Fonts */,
 				A4DD9CAE27A8E4DF0006CA6E /* AppDelegate.swift */,
 				A4DD9CC527A8E74F0006CA6E /* Utils */,
 				A4DD9CC427A8E7470006CA6E /* View */,
@@ -92,7 +112,7 @@
 		A4DD9CC327A8E73E0006CA6E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A4DD9CC827A8E7A50006CA6E /* Home */,
+				A42CBFB327AB794D0069FC45 /* Tabs */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -100,7 +120,7 @@
 		A4DD9CC427A8E7470006CA6E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A4DD9CC727A8E79C0006CA6E /* Home */,
+				A4DD9CC727A8E79C0006CA6E /* Tabs */,
 				A4DD9CC627A8E76B0006CA6E /* Launch */,
 			);
 			path = View;
@@ -109,6 +129,7 @@
 		A4DD9CC527A8E74F0006CA6E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				A42CBFAC27AB745E0069FC45 /* UIUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -121,23 +142,17 @@
 			path = Launch;
 			sourceTree = "<group>";
 		};
-		A4DD9CC727A8E79C0006CA6E /* Home */ = {
+		A4DD9CC727A8E79C0006CA6E /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */,
 				A4DD9CCA27A8E7C80006CA6E /* HomeViewController.xib */,
+				A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */,
 			);
-			path = Home;
+			path = Tabs;
 			sourceTree = "<group>";
 		};
-		A4DD9CC827A8E7A50006CA6E /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				A4DD9CC927A8E7C80006CA6E /* HomeViewController.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		A4E4E1FF27AA2CE1009C029C /* fonts */ = {
+		A4E4E1FF27AA2CE1009C029C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
 				A4E4E20827AA2DE7009C029C /* RobotoMono-Bold.ttf */,
@@ -149,7 +164,7 @@
 				A4E4E20727AA2DE7009C029C /* RobotoMono-LightItalic.ttf */,
 				A4E4E20027AA2D00009C029C /* RobotoMono-Medium.ttf */,
 			);
-			path = fonts;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +227,7 @@
 			files = (
 				A4E4E20C27AA2DE7009C029C /* RobotoMono-ExtraLightItalic.ttf in Resources */,
 				A4DD9CBB27A8E4E00006CA6E /* LaunchScreen.storyboard in Resources */,
+				A42CBFB927AB7BC50069FC45 /* SearchViewController.xib in Resources */,
 				A4E4E20127AA2D00009C029C /* RobotoMono-Medium.ttf in Resources */,
 				A4E4E20B27AA2DE7009C029C /* RobotoMono-Light.ttf in Resources */,
 				A4E4E20D27AA2DE7009C029C /* RobotoMono-Italic.ttf in Resources */,
@@ -219,6 +235,7 @@
 				A4DD9CB827A8E4E00006CA6E /* Assets.xcassets in Resources */,
 				A4DD9CCC27A8E7C80006CA6E /* HomeViewController.xib in Resources */,
 				A4E4E20F27AA2DE7009C029C /* RobotoMono-Bold.ttf in Resources */,
+				A42CBFBD27AB7D0E0069FC45 /* WatchListViewController.xib in Resources */,
 				A4E4E20927AA2DE7009C029C /* RobotoMono-BoldItalic.ttf in Resources */,
 				A4E4E20E27AA2DE7009C029C /* RobotoMono-LightItalic.ttf in Resources */,
 			);
@@ -231,7 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A42CBFB827AB7BC50069FC45 /* SearchViewController.swift in Sources */,
+				A42CBFAD27AB745E0069FC45 /* UIUtils.swift in Sources */,
 				A4DD9CAF27A8E4DF0006CA6E /* AppDelegate.swift in Sources */,
+				A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */,
 				A4DD9CCB27A8E7C80006CA6E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
