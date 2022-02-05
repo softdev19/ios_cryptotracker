@@ -72,7 +72,6 @@
 				08FC90468FD6297BE61BA438 /* Pods-CryptoTracker.debug.xcconfig */,
 				037049E78DD6D276E55231FB /* Pods-CryptoTracker.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -204,6 +203,7 @@
 				A4DD9CA827A8E4DF0006CA6E /* Frameworks */,
 				A4DD9CA927A8E4DF0006CA6E /* Resources */,
 				2D165A3D38DD267CC6A2C6DD /* [CP] Embed Pods Frameworks */,
+				A4184A6C27AE1EA200A019D9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -287,6 +287,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoTracker/Pods-CryptoTracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A4184A6C27AE1EA200A019D9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		DF29A2CEFA715D1E36C63061 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

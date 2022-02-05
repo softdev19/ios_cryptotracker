@@ -42,8 +42,6 @@ extension UIUtils {
         tabBar.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         tabBar.tabBar.layer.masksToBounds = true
         
-        
-        
         let homeVc = HomeViewController()
         let searchVc = SearchViewController()
         let watchVc = WatchListViewController()
