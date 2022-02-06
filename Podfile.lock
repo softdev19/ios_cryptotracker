@@ -1,0 +1,55 @@
+PODS:
+  - EFCountingLabel (5.1.4)
+  - MaterialComponents/AnimationTiming (124.2.0)
+  - MaterialComponents/Availability (124.2.0)
+  - MaterialComponents/Cards (124.2.0):
+    - MaterialComponents/Elevation
+    - MaterialComponents/Ink
+    - MaterialComponents/private/Icons/ic_check_circle
+    - MaterialComponents/private/Math
+    - MaterialComponents/Ripple
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Shapes
+  - MaterialComponents/Elevation (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/Ink (124.2.0):
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Color (124.2.0):
+    - MaterialComponents/Availability
+  - MaterialComponents/private/Icons/Base (124.2.0)
+  - MaterialComponents/private/Icons/ic_check_circle (124.2.0):
+    - MaterialComponents/private/Icons/Base
+  - MaterialComponents/private/Math (124.2.0)
+  - MaterialComponents/Ripple (124.2.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Availability
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (124.2.0)
+  - MaterialComponents/ShadowLayer (124.2.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Shapes (124.2.0):
+    - MaterialComponents/private/Color
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+
+DEPENDENCIES:
+  - EFCountingLabel
+  - MaterialComponents/Cards
+
+SPEC REPOS:
+  trunk:
+    - EFCountingLabel
+    - MaterialComponents
+
+SPEC CHECKSUMS:
+  EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
+  MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
+
+PODFILE CHECKSUM: 0e85238749a672680fd5807f17a118c2f9674c39
+
+COCOAPODS: 1.11.2

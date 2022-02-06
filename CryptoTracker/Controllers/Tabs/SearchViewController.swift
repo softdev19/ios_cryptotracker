@@ -15,7 +15,7 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.topViewController?.title = "Search";
+        self.navigationController?.topViewController?.title = "Search"
     }
 
 
