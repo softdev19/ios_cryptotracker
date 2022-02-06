@@ -51,7 +51,13 @@ class HomeViewController: UIViewController {
     private func setupTable() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = false
+        tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "ExchangesTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: ExchangesTableViewCell.identifier)
     }
 
 }
@@ -60,12 +66,16 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: Table Cell
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier)
+                        as? ExchangesTableViewCell
+        cell?.onClicked = {
+            print("TODO: Show modal")
+        }
+        return cell!
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Return length of exchanges array
-        return 0
+        return 10
     }
+
 }
