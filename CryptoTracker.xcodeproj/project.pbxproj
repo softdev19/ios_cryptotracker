@@ -28,6 +28,8 @@
 		A4E4E20D27AA2DE7009C029C /* RobotoMono-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4E4E20627AA2DE7009C029C /* RobotoMono-Italic.ttf */; };
 		A4E4E20E27AA2DE7009C029C /* RobotoMono-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4E4E20727AA2DE7009C029C /* RobotoMono-LightItalic.ttf */; };
 		A4E4E20F27AA2DE7009C029C /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4E4E20827AA2DE7009C029C /* RobotoMono-Bold.ttf */; };
+		A4F1E65A27B060CF0098C96E /* CoinCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F1E65827B060CF0098C96E /* CoinCollectionViewCell.swift */; };
+		A4F1E65B27B060CF0098C96E /* CoinCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4F1E65927B060CF0098C96E /* CoinCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		A4E4E20627AA2DE7009C029C /* RobotoMono-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Italic.ttf"; sourceTree = "<group>"; };
 		A4E4E20727AA2DE7009C029C /* RobotoMono-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-LightItalic.ttf"; sourceTree = "<group>"; };
 		A4E4E20827AA2DE7009C029C /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
+		A4F1E65827B060CF0098C96E /* CoinCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCollectionViewCell.swift; sourceTree = "<group>"; };
+		A4F1E65927B060CF0098C96E /* CoinCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		A4982BBC27AF445400767D0F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A4F1E65727B060BC0098C96E /* Search */,
 				A4982BBD27AF445C00767D0F /* Home */,
 			);
 			path = Components;
@@ -116,6 +121,7 @@
 		A4982BC227AF448D00767D0F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A4F1E65C27B060D60098C96E /* Search */,
 				A4982BC327AF449300767D0F /* Home */,
 			);
 			path = Components;
@@ -229,6 +235,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		A4F1E65727B060BC0098C96E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A4F1E65927B060CF0098C96E /* CoinCollectionViewCell.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		A4F1E65C27B060D60098C96E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A4F1E65827B060CF0098C96E /* CoinCollectionViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4E4E20C27AA2DE7009C029C /* RobotoMono-ExtraLightItalic.ttf in Resources */,
+				A4F1E65B27B060CF0098C96E /* CoinCollectionViewCell.xib in Resources */,
 				A4DD9CBB27A8E4E00006CA6E /* LaunchScreen.storyboard in Resources */,
 				A42CBFB927AB7BC50069FC45 /* SearchViewController.xib in Resources */,
 				A4E4E20127AA2D00009C029C /* RobotoMono-Medium.ttf in Resources */,
@@ -376,6 +399,7 @@
 				A42CBFB827AB7BC50069FC45 /* SearchViewController.swift in Sources */,
 				A42CBFAD27AB745E0069FC45 /* UIUtils.swift in Sources */,
 				A4982BC027AF448400767D0F /* ExchangesTableViewCell.swift in Sources */,
+				A4F1E65A27B060CF0098C96E /* CoinCollectionViewCell.swift in Sources */,
 				A4DD9CAF27A8E4DF0006CA6E /* AppDelegate.swift in Sources */,
 				A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */,
 				A4DD9CCB27A8E7C80006CA6E /* HomeViewController.swift in Sources */,
@@ -523,10 +547,12 @@
 				DEVELOPMENT_TEAM = 5P4JJDT7CR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -552,10 +578,12 @@
 				DEVELOPMENT_TEAM = 5P4JJDT7CR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CryptoTracker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Crypto Tracker";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

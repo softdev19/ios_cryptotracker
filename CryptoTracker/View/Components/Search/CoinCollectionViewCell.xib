@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="RobotoMono-Medium.ttf">
+            <string>RobotoMono-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CoinCollectionViewCell" id="gTV-IL-0wX" customClass="CoinCollectionViewCell" customModule="CryptoTracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="135"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="135"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28D-Jc-Juy" customClass="MDCCard">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="135"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic.main" translatesAutoresizingMaskIntoConstraints="NO" id="iCL-FZ-pjO">
+                                <rect key="frame" x="85" y="60" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="qPa-Pa-M4T"/>
+                                    <constraint firstAttribute="width" secondItem="iCL-FZ-pjO" secondAttribute="height" multiplier="1:1" id="tYv-HD-QL9"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCR-XO-cH3">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="135"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coin Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqw-tb-rO0">
+                                        <rect key="frame" x="5" y="102.5" width="92" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="17"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hqw-tb-rO0" secondAttribute="bottom" constant="10" id="48e-Ii-wYX"/>
+                                    <constraint firstItem="hqw-tb-rO0" firstAttribute="leading" secondItem="wCR-XO-cH3" secondAttribute="leading" constant="5" id="cJX-Kz-jyJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="wCR-XO-cH3" secondAttribute="bottom" id="0Xf-j5-nak"/>
+                            <constraint firstAttribute="bottom" secondItem="iCL-FZ-pjO" secondAttribute="bottom" constant="-25" id="Bd2-xo-7Uk"/>
+                            <constraint firstAttribute="trailing" secondItem="wCR-XO-cH3" secondAttribute="trailing" id="cA6-l4-JsC"/>
+                            <constraint firstItem="wCR-XO-cH3" firstAttribute="leading" secondItem="28D-Jc-Juy" secondAttribute="leading" id="gAs-hc-2Tt"/>
+                            <constraint firstItem="wCR-XO-cH3" firstAttribute="top" secondItem="28D-Jc-Juy" secondAttribute="top" id="jUW-tP-6gc"/>
+                            <constraint firstAttribute="trailing" secondItem="iCL-FZ-pjO" secondAttribute="trailing" constant="-25" id="xaJ-d8-nXm"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="28D-Jc-Juy" secondAttribute="bottom" id="0ak-Dh-JJv"/>
+                <constraint firstAttribute="trailing" secondItem="28D-Jc-Juy" secondAttribute="trailing" id="OMt-8Y-rfP"/>
+                <constraint firstItem="28D-Jc-Juy" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Wmm-kv-AHJ"/>
+                <constraint firstItem="28D-Jc-Juy" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ibu-NU-72i"/>
+            </constraints>
+            <size key="customSize" width="160" height="135"/>
+            <connections>
+                <outlet property="cardView" destination="28D-Jc-Juy" id="NTT-Jh-Jma"/>
+                <outlet property="gradientView" destination="wCR-XO-cH3" id="oGe-tK-a4U"/>
+            </connections>
+            <point key="canvasLocation" x="211.59420289855075" y="154.35267857142856"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic.main" width="115" height="115"/>
+        <namedColor name="TextColor">
+            <color red="0.92156862745098034" green="0.90196078431372551" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
