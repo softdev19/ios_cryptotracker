@@ -13,6 +13,11 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchTextField: MDCOutlinedTextField!
     @IBOutlet weak var collectionView: UICollectionView!
 
+    private let numberOfColumns: CGFloat = 2
+    private let collectionInsets: CGFloat = 10
+    private let collectionSideContraints: CGFloat = 20
+    private var screenWidth: CGFloat = UIScreen.main.bounds.width
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchField()
@@ -37,6 +42,34 @@ class SearchViewController: UIViewController {
     }
 
     private func setupCollectionView() {
-        // TODO: collection view delegate and data source
+        collectionView.register(UINib(nibName: CoinCollectionViewCell.identifier, bundle: nil),
+                                forCellWithReuseIdentifier: CoinCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+}
+
+// MARK: - Extensions
+extension SearchViewController: UICollectionViewDelegate,
+                                    UICollectionViewDataSource,
+                                    UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 50
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinCollectionViewCell.identifier,
+                                                      for: indexPath) as? CoinCollectionViewCell
+        return cell!
+    }
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = screenWidth - collectionSideContraints - (numberOfColumns - 1) * collectionInsets
+        let cellWidth = (width / numberOfColumns)
+        return CGSize(width: cellWidth, height: cellWidth)
     }
 }
