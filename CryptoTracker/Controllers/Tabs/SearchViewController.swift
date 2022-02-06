@@ -57,11 +57,14 @@ extension SearchViewController: UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 50
     }
-    
+
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinCollectionViewCell.identifier,
                                                       for: indexPath) as? CoinCollectionViewCell
+        cell?.onClicked = {
+            // TODO: Navigate to other view
+        }
         return cell!
     }
 
@@ -72,4 +75,5 @@ extension SearchViewController: UICollectionViewDelegate,
         let cellWidth = (width / numberOfColumns)
         return CGSize(width: cellWidth, height: cellWidth)
     }
+
 }
