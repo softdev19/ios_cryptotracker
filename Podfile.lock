@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.5.0)
   - EFCountingLabel (5.1.4)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
@@ -65,21 +66,24 @@ PODS:
   - MDFInternationalization (3.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - EFCountingLabel
   - MaterialComponents/Cards
   - "MaterialComponents/TextControls+OutlinedTextFields"
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - EFCountingLabel
     - MaterialComponents
     - MDFInternationalization
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
 
-PODFILE CHECKSUM: 907e69175e39a9c109695027eaa336f9f67b08a8
+PODFILE CHECKSUM: a9629fbdd1fae82b27e852a6230ac38922479b18
 
 COCOAPODS: 1.11.2
