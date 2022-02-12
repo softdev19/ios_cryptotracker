@@ -47,8 +47,8 @@ class HomeViewController: UIViewController {
     }
 
     private func showSkeletonView() {
-        for label in [coinsLbl, marketsLbl, exchangesLbl, marketCapLbl, lastDayVolume] {
-            label?.showGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "MainColor")!,
+        for view in [coinsLbl, marketsLbl, exchangesLbl, marketCapLbl, lastDayVolume, tableView] {
+            view?.showGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "MainColor")!,
                                                              secondaryColor: UIColor(named: "SecondaryColor")!),
                                         animated: true, delay: 0, transition: .crossDissolve(0.25))
         }
@@ -71,7 +71,7 @@ class HomeViewController: UIViewController {
     private func setupTable() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
@@ -122,7 +122,7 @@ class HomeViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier)
                         as? ExchangesTableViewCell
@@ -134,6 +134,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return ExchangesTableViewCell.identifier
     }
 
 }

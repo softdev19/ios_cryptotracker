@@ -11,6 +11,7 @@ import MaterialComponents.MDCCard
 class ExchangesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: MDCCard!
+    @IBOutlet weak var exchangeImg: UIImageView!
 
     public var onClicked: (() -> Void)!
 
@@ -22,6 +23,7 @@ class ExchangesTableViewCell: UITableViewCell {
     }
 
     private func setupUI() {
+        exchangeImg.layer.cornerRadius = exchangeImg.bounds.width / 2
         cardView.cornerRadius = 20
         cardView.setShadowColor(UIColor(named: "TextColor"), for: .normal)
         cardView.setShadowElevation(ShadowElevation(rawValue: 10), for: .normal)

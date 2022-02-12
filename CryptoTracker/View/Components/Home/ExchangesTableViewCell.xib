@@ -35,18 +35,27 @@
                                     <constraint firstAttribute="height" constant="50" id="Aze-tl-2uS"/>
                                     <constraint firstAttribute="width" secondItem="BwC-mo-eak" secondAttribute="height" multiplier="1:1" id="aTA-Mn-xZT"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchange name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-xZ-6bH">
                                 <rect key="frame" x="85" y="24.5" width="133" height="22.5"/>
                                 <fontDescription key="fontDescription" name="RobotoMono-Bold" family="Roboto Mono" pointSize="17"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for more info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vec-n8-Jod">
                                 <rect key="frame" x="85" y="58.5" width="122.5" height="16"/>
                                 <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="12"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" name="MainColor"/>
@@ -60,6 +69,9 @@
                             <constraint firstItem="qKC-xZ-6bH" firstAttribute="leading" secondItem="BwC-mo-eak" secondAttribute="trailing" constant="30" id="rT7-EF-APc"/>
                             <constraint firstItem="qKC-xZ-6bH" firstAttribute="top" secondItem="BwC-mo-eak" secondAttribute="top" id="vCV-1p-baq"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -68,11 +80,18 @@
                     <constraint firstItem="kzX-jF-1Yd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="UL0-s1-Gbo"/>
                     <constraint firstItem="kzX-jF-1Yd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="eJ2-pp-6LS"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="cardView" destination="kzX-jF-1Yd" id="TJt-h6-p1K"/>
+                <outlet property="exchangeImg" destination="BwC-mo-eak" id="MHh-6p-zLK"/>
             </connections>
             <point key="canvasLocation" x="177.536231884058" y="82.366071428571431"/>
         </tableViewCell>
