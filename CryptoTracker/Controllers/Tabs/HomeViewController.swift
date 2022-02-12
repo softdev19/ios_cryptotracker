@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var exchangesLbl: EFCountingLabel!
     @IBOutlet weak var marketCapLbl: EFCountingLabel!
     @IBOutlet weak var lastDayVolume: EFCountingLabel!
-    
+
     private let formatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal

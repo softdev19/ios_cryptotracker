@@ -13,6 +13,8 @@
 		A42CBFB927AB7BC50069FC45 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */; };
 		A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */; };
 		A42CBFBD27AB7D0E0069FC45 /* WatchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */; };
+		A44E5B6527B862E0009A9149 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E5B6427B862E0009A9149 /* Exchange.swift */; };
+		A44E5B6A27B86B1D009A9149 /* ExchangesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E5B6927B86B1D009A9149 /* ExchangesList.swift */; };
 		A484A15E27B4C0C8007CC3FC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484A15D27B4C0C8007CC3FC /* API.swift */; };
 		A484A16027B4C793007CC3FC /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484A15F27B4C793007CC3FC /* GenericResponse.swift */; };
 		A484A16227B4C863007CC3FC /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484A16127B4C863007CC3FC /* Stats.swift */; };
@@ -46,6 +48,8 @@
 		A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchListViewController.xib; sourceTree = "<group>"; };
+		A44E5B6427B862E0009A9149 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
+		A44E5B6927B86B1D009A9149 /* ExchangesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesList.swift; sourceTree = "<group>"; };
 		A484A15D27B4C0C8007CC3FC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A484A15F27B4C793007CC3FC /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		A484A16127B4C863007CC3FC /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			children = (
 				A484A15F27B4C793007CC3FC /* GenericResponse.swift */,
 				A484A16127B4C863007CC3FC /* Stats.swift */,
+				A44E5B6427B862E0009A9149 /* Exchange.swift */,
+				A44E5B6927B86B1D009A9149 /* ExchangesList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -436,7 +442,9 @@
 				A4F1E65A27B060CF0098C96E /* CoinCollectionViewCell.swift in Sources */,
 				A4DD9CAF27A8E4DF0006CA6E /* AppDelegate.swift in Sources */,
 				A495186E27B3761700917DD9 /* WatchListTableViewCell.swift in Sources */,
+				A44E5B6527B862E0009A9149 /* Exchange.swift in Sources */,
 				A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */,
+				A44E5B6A27B86B1D009A9149 /* ExchangesList.swift in Sources */,
 				A484A15E27B4C0C8007CC3FC /* API.swift in Sources */,
 				A4DD9CCB27A8E7C80006CA6E /* HomeViewController.swift in Sources */,
 			);
