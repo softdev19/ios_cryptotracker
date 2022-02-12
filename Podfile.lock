@@ -64,12 +64,14 @@ PODS:
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
   - MDFInternationalization (3.0.0)
+  - SkeletonView (1.29.2)
 
 DEPENDENCIES:
   - Alamofire
   - EFCountingLabel
   - MaterialComponents/Cards
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
@@ -77,13 +79,15 @@ SPEC REPOS:
     - EFCountingLabel
     - MaterialComponents
     - MDFInternationalization
+    - SkeletonView
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
+  SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
 
-PODFILE CHECKSUM: a9629fbdd1fae82b27e852a6230ac38922479b18
+PODFILE CHECKSUM: fb9ee8d7788363be02e3602760d170fda710376b
 
 COCOAPODS: 1.11.2

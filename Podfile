@@ -10,4 +10,5 @@ target 'CryptoTracker' do
   pod "MaterialComponents/TextControls+OutlinedTextFields"
   pod "EFCountingLabel"
   pod "Alamofire"
+  pod "SkeletonView"
 end
