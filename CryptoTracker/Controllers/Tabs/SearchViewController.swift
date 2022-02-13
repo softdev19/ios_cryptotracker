@@ -17,6 +17,7 @@ class SearchViewController: UIViewController {
     private let collectionInsets: CGFloat = 10
     private let collectionSideContraints: CGFloat = 20
     private var screenWidth: CGFloat = UIScreen.main.bounds.width
+    private var coins: [Coin]! = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,9 @@ class SearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.topViewController?.title = "Search a Coin"
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.fetchCoins()
+        }
     }
 
     private func setupSearchField() {
@@ -47,6 +51,23 @@ class SearchViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+
+    private func fetchCoins() {
+        CoinList.fetchCoins { response in
+            guard let coinList = response else {
+                return
+            }
+
+            if coinList.status != "success" {
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.coins = coinList.data?.coins
+                self.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 // MARK: - Extensions
@@ -55,7 +76,7 @@ extension SearchViewController: UICollectionViewDelegate,
                                     UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return coins.count
     }
 
     func collectionView(_ collectionView: UICollectionView,

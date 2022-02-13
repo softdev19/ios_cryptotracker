@@ -108,8 +108,10 @@ class HomeViewController: UIViewController {
                 return
             }
 
-            self.exchanges = exchanges.data?.exchanges
-            self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+            DispatchQueue.main.async {
+                self.exchanges = exchanges.data?.exchanges
+                self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+            }
         }
     }
 

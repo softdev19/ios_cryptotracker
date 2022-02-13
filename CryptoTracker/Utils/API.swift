@@ -38,6 +38,11 @@ class API {
 
         requestGet(url: url, headers: rapidApidHeaders, parameters: parameters, completion: completion)
     }
+    
+    public func fetchCoins(completion: @escaping (_ response: GenericResponse<CoinList>?) -> Void) {
+        let url = "\(coinRankingBaseUrl)coins"
+        requestGet(url: url, headers: coinRankingHeaders, parameters: nil, completion: completion)
+    }
 
     private func requestGet<T>(url: String,
                                headers: HTTPHeaders,
