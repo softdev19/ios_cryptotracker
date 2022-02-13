@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         numberFormatter.decimalSeparator = ","
         return numberFormatter
     }()
-    private var exchanges: [Exchange]! = []
+    private var exchanges = [Exchange]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +109,7 @@ class HomeViewController: UIViewController {
             }
 
             DispatchQueue.main.async {
-                self.exchanges = exchanges.data?.exchanges
+                self.exchanges = exchanges.data!.exchanges
                 self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
             }
         }

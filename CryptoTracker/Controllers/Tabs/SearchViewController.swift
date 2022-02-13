@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     private let collectionInsets: CGFloat = 10
     private let collectionSideContraints: CGFloat = 20
     private var screenWidth: CGFloat = UIScreen.main.bounds.width
-    private var coins: [Coin]! = []
+    private var coins = [Coin]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,7 @@ class SearchViewController: UIViewController {
             }
 
             DispatchQueue.main.async {
-                self.coins = coinList.data?.coins
+                self.coins = coinList.data!.coins
                 self.collectionView.reloadData()
             }
         }
