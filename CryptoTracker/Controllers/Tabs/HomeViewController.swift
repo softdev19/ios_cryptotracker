@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         numberFormatter.decimalSeparator = ","
         return numberFormatter
     }()
+    private var exchanges: [Exchange]! = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +45,9 @@ class HomeViewController: UIViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             self.fetchStats()
         }
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.fetchExchanges()
+        }
     }
 
     private func showSkeletonView() {
@@ -56,7 +60,7 @@ class HomeViewController: UIViewController {
 
     private func hideSkeletonView() {
         for label in [coinsLbl, marketsLbl, exchangesLbl, marketCapLbl, lastDayVolume] {
-            label?.hideSkeleton()
+            label?.hideSkeleton(reloadDataAfter: false, transition: .crossDissolve(0.2))
         }
     }
 
@@ -91,6 +95,21 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 self.showData(for: stats.data!)
             }
+        }
+    }
+
+    private func fetchExchanges() {
+        ExchangesList.fetchExchanges { response in
+            guard let exchanges = response else {
+                return
+            }
+
+            if exchanges.status != "success" {
+                return
+            }
+
+            self.exchanges = exchanges.data?.exchanges
+            self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
         }
     }
 
@@ -133,7 +152,7 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return exchanges.count
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView,
