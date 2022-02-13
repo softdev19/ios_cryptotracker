@@ -30,7 +30,7 @@
                         <rect key="frame" x="5" y="5" width="342" height="99"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic.main" translatesAutoresizingMaskIntoConstraints="NO" id="BwC-mo-eak">
-                                <rect key="frame" x="5" y="24.5" width="50" height="50"/>
+                                <rect key="frame" x="10" y="24.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Aze-tl-2uS"/>
                                     <constraint firstAttribute="width" secondItem="BwC-mo-eak" secondAttribute="height" multiplier="1:1" id="aTA-Mn-xZT"/>
@@ -40,7 +40,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchange name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-xZ-6bH">
-                                <rect key="frame" x="85" y="24.5" width="133" height="22.5"/>
+                                <rect key="frame" x="90" y="24.5" width="133" height="22.5"/>
                                 <fontDescription key="fontDescription" name="RobotoMono-Bold" family="Roboto Mono" pointSize="17"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for more info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vec-n8-Jod">
-                                <rect key="frame" x="85" y="58.5" width="122.5" height="16"/>
+                                <rect key="frame" x="90" y="58.5" width="122.5" height="16"/>
                                 <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="12"/>
                                 <color key="textColor" name="TextColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                         <color key="backgroundColor" name="MainColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="BwC-mo-eak" secondAttribute="bottom" constant="24.5" id="3g7-78-Y54"/>
-                            <constraint firstItem="BwC-mo-eak" firstAttribute="leading" secondItem="kzX-jF-1Yd" secondAttribute="leading" constant="5" id="5aT-jm-Mxk"/>
+                            <constraint firstItem="BwC-mo-eak" firstAttribute="leading" secondItem="kzX-jF-1Yd" secondAttribute="leading" constant="10" id="5aT-jm-Mxk"/>
                             <constraint firstItem="vec-n8-Jod" firstAttribute="leading" secondItem="BwC-mo-eak" secondAttribute="trailing" constant="30" id="K8O-cu-Yai"/>
                             <constraint firstItem="vec-n8-Jod" firstAttribute="bottom" secondItem="BwC-mo-eak" secondAttribute="bottom" id="etw-sq-fqA"/>
                             <constraint firstItem="BwC-mo-eak" firstAttribute="top" secondItem="kzX-jF-1Yd" secondAttribute="top" constant="24.5" id="f2J-Mt-4sU"/>
@@ -92,6 +92,7 @@
             <connections>
                 <outlet property="cardView" destination="kzX-jF-1Yd" id="TJt-h6-p1K"/>
                 <outlet property="exchangeImg" destination="BwC-mo-eak" id="MHh-6p-zLK"/>
+                <outlet property="exchangeNameLbl" destination="qKC-xZ-6bH" id="GPP-lk-TxG"/>
             </connections>
             <point key="canvasLocation" x="177.536231884058" y="82.366071428571431"/>
         </tableViewCell>

@@ -143,8 +143,9 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier, for: indexPath)
                         as? ExchangesTableViewCell
+        cell?.displayExchangeData(for: exchanges[indexPath.row])
         cell?.onClicked = {
             print("TODO: Show modal")
         }

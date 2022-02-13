@@ -7,12 +7,14 @@
 
 import UIKit
 import MaterialComponents.MDCCard
+import SDWebImage
 
 class ExchangesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: MDCCard!
     @IBOutlet weak var exchangeImg: UIImageView!
-
+    @IBOutlet weak var exchangeNameLbl: UILabel!
+    
     public var onClicked: (() -> Void)!
 
     static let identifier: String = "ExchangesTableViewCell"
@@ -20,6 +22,12 @@ class ExchangesTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        exchangeImg.sd_cancelCurrentImageLoad()
+        exchangeImg.image = nil
     }
 
     private func setupUI() {
@@ -30,6 +38,13 @@ class ExchangesTableViewCell: UITableViewCell {
 
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapped))
         cardView.addGestureRecognizer(tapRecognizer)
+    }
+
+    public func displayExchangeData(for exchange: Exchange) {
+        guard let imgUrl = URL(string: exchange.iconUrl) else {return}
+
+        exchangeNameLbl.text = exchange.name
+        exchangeImg.sd_setImage(with: imgUrl)
     }
 
     @objc private func onTapped() {

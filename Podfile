@@ -11,4 +11,6 @@ target 'CryptoTracker' do
   pod "EFCountingLabel"
   pod "Alamofire"
   pod "SkeletonView"
+  pod "SDWebImage"
+  pod "SDWebImageSVGCoder"
 end
