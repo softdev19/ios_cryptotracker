@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SDWebImage
+import SDWebImageSVGCoder
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,15 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Adding svg support for SDWebImage
+        let SVGCoder = SDImageSVGCoder.shared
+        SDImageCodersManager.shared.addCoder(SVGCoder)
+
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIUtils.shared.setupNagivation()
         window?.makeKeyAndVisible()
         return true
     }
-    
-
-
 
 }
-

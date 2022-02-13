@@ -8,6 +8,7 @@
 import UIKit
 import MaterialComponents.MaterialCards
 import EFCountingLabel
+import SkeletonView
 
 class HomeViewController: UIViewController {
 
@@ -23,6 +24,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var marketCapLbl: EFCountingLabel!
     @IBOutlet weak var lastDayVolume: EFCountingLabel!
 
+    private let formatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.decimalSeparator = ","
+        return numberFormatter
+    }()
+    private var exchanges: [Exchange]! = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCards()
@@ -32,6 +41,27 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.topViewController?.title = "Home"
+        showSkeletonView()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.fetchStats()
+        }
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.fetchExchanges()
+        }
+    }
+
+    private func showSkeletonView() {
+        for view in [coinsLbl, marketsLbl, exchangesLbl, marketCapLbl, lastDayVolume, tableView] {
+            view?.showGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "MainColor")!,
+                                                             secondaryColor: UIColor(named: "SecondaryColor")!),
+                                        animated: true, delay: 0, transition: .crossDissolve(0.25))
+        }
+    }
+
+    private func hideSkeletonView() {
+        for label in [coinsLbl, marketsLbl, exchangesLbl, marketCapLbl, lastDayVolume] {
+            label?.hideSkeleton(reloadDataAfter: false, transition: .crossDissolve(0.2))
+        }
     }
 
     private func setupCards() {
@@ -40,18 +70,12 @@ class HomeViewController: UIViewController {
             card?.setShadowElevation(ShadowElevation(rawValue: 10), for: .normal)
             card?.cornerRadius = 20
         }
-
-        coinsLbl.countFromZeroTo(1000, withDuration: 1)
-        marketsLbl.countFromZeroTo(1000, withDuration: 1)
-        exchangesLbl.countFromZeroTo(1000, withDuration: 1)
-        marketCapLbl.countFromZeroTo(1000, withDuration: 1)
-        lastDayVolume.countFromZeroTo(1000, withDuration: 1)
     }
 
     private func setupTable() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
@@ -60,14 +84,68 @@ class HomeViewController: UIViewController {
                            forCellReuseIdentifier: ExchangesTableViewCell.identifier)
     }
 
+    private func fetchStats() {
+        Stats.fetchStats { response in
+            guard let stats = response else {return}
+
+            if stats.status != "success" {
+                return
+            }
+
+            DispatchQueue.main.async {
+                self.showData(for: stats.data!)
+            }
+        }
+    }
+
+    private func fetchExchanges() {
+        ExchangesList.fetchExchanges { response in
+            guard let exchanges = response else {
+                return
+            }
+
+            if exchanges.status != "success" {
+                return
+            }
+
+            self.exchanges = exchanges.data?.exchanges
+            self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+        }
+    }
+
+    private func showData(for stats: Stats) {
+
+        guard let totalCoins = stats.totalCoins,
+              let totalMarkets = stats.totalMarkets,
+              let exchanges = stats.totalExchanges,
+              let marketCap = stats.totalMarketCap,
+              let lastDayVolumeStat = stats.lastDayVolume else {
+                  return
+              }
+
+        hideSkeletonView()
+        coinsLbl.countFromZeroTo(CGFloat(totalCoins), withDuration: 0.7)
+        marketsLbl.countFromZeroTo(CGFloat(totalMarkets), withDuration: 0.7)
+        exchangesLbl.countFromZeroTo(CGFloat(exchanges), withDuration: 0.7)
+        marketCapLbl.countFromZeroTo(CGFloat(formatter.number(from: marketCap)!), withDuration: 0.7)
+        lastDayVolume.countFromZeroTo(CGFloat(formatter.number(from: lastDayVolumeStat)!), withDuration: 0.7)
+
+        for label in [coinsLbl, marketsLbl, exchangesLbl, marketCapLbl, lastDayVolume] {
+            label?.setUpdateBlock({ value, sender in
+                sender.text = String(format: "%.0f", locale: Locale.current, value)
+            })
+        }
+    }
+
 }
 
 // MARK: - Extensions
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier, for: indexPath)
                         as? ExchangesTableViewCell
+        cell?.displayExchangeData(for: exchanges[indexPath.row])
         cell?.onClicked = {
             print("TODO: Show modal")
         }
@@ -75,7 +153,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return exchanges.count
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView,
+                                cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return ExchangesTableViewCell.identifier
     }
 
 }

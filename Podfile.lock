@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.5.0)
   - EFCountingLabel (5.1.4)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
@@ -63,23 +64,41 @@ PODS:
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
   - MDFInternationalization (3.0.0)
+  - SDWebImage (5.12.2):
+    - SDWebImage/Core (= 5.12.2)
+  - SDWebImage/Core (5.12.2)
+  - SDWebImageSVGCoder (1.6.1):
+    - SDWebImage/Core (~> 5.6)
+  - SkeletonView (1.29.2)
 
 DEPENDENCIES:
+  - Alamofire
   - EFCountingLabel
   - MaterialComponents/Cards
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - SDWebImage
+  - SDWebImageSVGCoder
+  - SkeletonView
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - EFCountingLabel
     - MaterialComponents
     - MDFInternationalization
+    - SDWebImage
+    - SDWebImageSVGCoder
+    - SkeletonView
 
 SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
+  SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
+  SDWebImageSVGCoder: 6fc109f9c2a82ab44510fff410b88b1a6c271ee8
+  SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
 
-PODFILE CHECKSUM: 907e69175e39a9c109695027eaa336f9f67b08a8
+PODFILE CHECKSUM: 000589844a32879fad85a32c75da2da571cbf460
 
 COCOAPODS: 1.11.2

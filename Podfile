@@ -9,4 +9,8 @@ target 'CryptoTracker' do
   pod "MaterialComponents/Cards"
   pod "MaterialComponents/TextControls+OutlinedTextFields"
   pod "EFCountingLabel"
+  pod "Alamofire"
+  pod "SkeletonView"
+  pod "SDWebImage"
+  pod "SDWebImageSVGCoder"
 end
