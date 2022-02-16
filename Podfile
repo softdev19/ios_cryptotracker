@@ -13,4 +13,5 @@ target 'CryptoTracker' do
   pod "SkeletonView"
   pod "SDWebImage"
   pod "SDWebImageSVGCoder"
+  pod "RealmSwift"
 end

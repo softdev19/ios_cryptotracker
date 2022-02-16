@@ -64,6 +64,11 @@ PODS:
     - "MaterialComponents/private/TextControlsPrivate+OutlinedStyle"
     - "MaterialComponents/TextControls+BaseTextFields"
   - MDFInternationalization (3.0.0)
+  - Realm (10.20.1):
+    - Realm/Headers (= 10.20.1)
+  - Realm/Headers (10.20.1)
+  - RealmSwift (10.20.1):
+    - Realm (= 10.20.1)
   - SDWebImage (5.12.2):
     - SDWebImage/Core (= 5.12.2)
   - SDWebImage/Core (5.12.2)
@@ -76,6 +81,7 @@ DEPENDENCIES:
   - EFCountingLabel
   - MaterialComponents/Cards
   - "MaterialComponents/TextControls+OutlinedTextFields"
+  - RealmSwift
   - SDWebImage
   - SDWebImageSVGCoder
   - SkeletonView
@@ -86,6 +92,8 @@ SPEC REPOS:
     - EFCountingLabel
     - MaterialComponents
     - MDFInternationalization
+    - Realm
+    - RealmSwift
     - SDWebImage
     - SDWebImageSVGCoder
     - SkeletonView
@@ -95,10 +103,12 @@ SPEC CHECKSUMS:
   EFCountingLabel: 210620994a2d54759f53034b5bda4642255969c7
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
+  Realm: fac5ecd031fcb81171627b74944c885662d4b266
+  RealmSwift: 9b02d25acb46a14756bde9893abb99e2e3675923
   SDWebImage: 240e5c12b592fb1268c1d03b8c90d90e8c2ffe82
   SDWebImageSVGCoder: 6fc109f9c2a82ab44510fff410b88b1a6c271ee8
   SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
 
-PODFILE CHECKSUM: 000589844a32879fad85a32c75da2da571cbf460
+PODFILE CHECKSUM: 55b3657bbbba29f8d17225e42a139303f8af7adc
 
 COCOAPODS: 1.11.2
