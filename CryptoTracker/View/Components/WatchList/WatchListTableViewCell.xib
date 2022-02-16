@@ -35,6 +35,9 @@
                                     <constraint firstAttribute="width" secondItem="NdC-mP-uVa" secondAttribute="height" multiplier="1:1" id="q26-cJ-c3o"/>
                                     <constraint firstAttribute="height" constant="50" id="zGD-PF-8LR"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-Kh-x6z">
                                 <rect key="frame" x="0.0" y="0.0" width="340" height="128"/>
@@ -47,14 +50,29 @@
                                                 <fontDescription key="fontDescription" name="RobotoMono-Bold" family="Roboto Mono" pointSize="17"/>
                                                 <color key="textColor" name="TextColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feF-UO-cb9">
                                                 <rect key="frame" x="0.0" y="46.5" width="92" height="41.5"/>
                                                 <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="15"/>
                                                 <color key="textColor" name="TextColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,6 +82,9 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GQz-81-LAh" secondAttribute="trailing" constant="50" id="cU2-hQ-mAf"/>
                                     <constraint firstAttribute="bottom" secondItem="GQz-81-LAh" secondAttribute="bottom" constant="20" id="lvs-vD-yd0"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,6 +96,9 @@
                             <constraint firstAttribute="bottom" secondItem="g8z-Kh-x6z" secondAttribute="bottom" id="uAB-Fj-46d"/>
                             <constraint firstAttribute="trailing" secondItem="NdC-mP-uVa" secondAttribute="trailing" constant="-20" id="w0T-Bx-7vg"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -83,11 +107,18 @@
                     <constraint firstItem="tB9-Xn-3Fn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="IXI-hm-hDu"/>
                     <constraint firstItem="tB9-Xn-3Fn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="udb-ps-bKk"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="cardView" destination="tB9-Xn-3Fn" id="wnj-m3-0V7"/>
+                <outlet property="coinImage" destination="NdC-mP-uVa" id="23E-s9-dU2"/>
                 <outlet property="coinLbl" destination="rTE-JZ-JcM" id="QRJ-j5-yPW"/>
                 <outlet property="gradientView" destination="g8z-Kh-x6z" id="Mj3-48-pM5"/>
                 <outlet property="priceLbl" destination="feF-UO-cb9" id="fk0-hk-NXL"/>

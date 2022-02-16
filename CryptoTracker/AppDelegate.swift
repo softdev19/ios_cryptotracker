@@ -5,9 +5,11 @@
 //  Created by Uriel Hernandez Gonzalez on 31/01/22.
 //
 
+
 import UIKit
 import SDWebImage
 import SDWebImageSVGCoder
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Adding svg support for SDWebImage
         let SVGCoder = SDImageSVGCoder.shared
         SDImageCodersManager.shared.addCoder(SVGCoder)
+
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = UIUtils.shared.setupNagivation()
