@@ -8,6 +8,10 @@
 import UIKit
 import MaterialComponents.MDCCard
 
+protocol CoinCollectionViewCellDelegate {
+    func onClicked(coindId: String)
+}
+
 class CoinCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "CoinCollectionViewCell"
@@ -15,7 +19,7 @@ class CoinCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cardView: MDCCard!
     @IBOutlet weak var gradientView: UIView!
     
-    public var onClicked: (() -> Void)!
+    public var delegate: CoinCollectionViewCellDelegate?
 
     private var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
@@ -39,7 +43,7 @@ class CoinCollectionViewCell: UICollectionViewCell {
     }
 
     @objc private func didTap() {
-        onClicked()
+        delegate?.onClicked(coindId: "coinId")
     }
 
 }

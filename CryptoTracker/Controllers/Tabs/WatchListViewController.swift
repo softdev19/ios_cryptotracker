@@ -73,13 +73,17 @@ extension WatchListViewController: UITableViewDelegate,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: WatchListTableViewCell.identifier)
                             as? WatchListTableViewCell
-        cell?.onClicked = {
-            // TODO: Redirecto to view
-        }
+        cell?.delegate = self
         return cell!
     }
     func collectionSkeletonView(_ skeletonView: UITableView,
                                 cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return WatchListTableViewCell.identifier
+    }
+}
+
+extension WatchListViewController: WatchListTableViewCellDelegate {
+    func onClicked(coinId: String) {
+        // TODO: Redirect to view
     }
 }

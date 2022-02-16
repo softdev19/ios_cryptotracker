@@ -8,6 +8,10 @@
 import UIKit
 import MaterialComponents.MDCCard
 
+protocol WatchListTableViewCellDelegate {
+    func onClicked(coinId: String)
+}
+
 class WatchListTableViewCell: UITableViewCell {
 
     static let identifier = "WatchListTableViewCell"
@@ -18,6 +22,8 @@ class WatchListTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var coinImage: UIImageView!
 
+    public var delegate: WatchListTableViewCellDelegate?
+    
     private var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.type = .axial
@@ -44,7 +50,7 @@ class WatchListTableViewCell: UITableViewCell {
     }
 
     @objc private func onTap() {
-        onClicked()
+        delegate?.onClicked(coinId: "Hola")
     }
 
 }

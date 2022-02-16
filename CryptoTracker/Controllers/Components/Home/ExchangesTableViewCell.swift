@@ -9,13 +9,18 @@ import UIKit
 import MaterialComponents.MDCCard
 import SDWebImage
 
+protocol ExchangesTableViewCellDelegate {
+    func onClicked(exchangeId: String)
+}
+
 class ExchangesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var cardView: MDCCard!
     @IBOutlet weak var exchangeImg: UIImageView!
     @IBOutlet weak var exchangeNameLbl: UILabel!
-    
-    public var onClicked: (() -> Void)!
+
+    public var delegate: ExchangesTableViewCellDelegate?
+    private var exchangeId: String!
 
     static let identifier: String = "ExchangesTableViewCell"
 
@@ -43,11 +48,12 @@ class ExchangesTableViewCell: UITableViewCell {
     public func displayExchangeData(for exchange: Exchange) {
         guard let imgUrl = URL(string: exchange.iconUrl) else {return}
 
+        exchangeId = exchange.uuid
         exchangeNameLbl.text = exchange.name
         exchangeImg.sd_setImage(with: imgUrl)
     }
 
     @objc private func onTapped() {
-        onClicked()
+        delegate?.onClicked(exchangeId: exchangeId)
     }
 }

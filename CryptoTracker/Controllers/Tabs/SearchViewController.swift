@@ -83,9 +83,7 @@ extension SearchViewController: UICollectionViewDelegate,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinCollectionViewCell.identifier,
                                                       for: indexPath) as? CoinCollectionViewCell
-        cell?.onClicked = {
-            // TODO: Navigate to other view
-        }
+        cell?.delegate = self
         return cell!
     }
 
@@ -97,4 +95,12 @@ extension SearchViewController: UICollectionViewDelegate,
         return CGSize(width: cellWidth, height: cellWidth)
     }
 
+}
+
+extension SearchViewController: CoinCollectionViewCellDelegate {
+    func onClicked(coindId: String) {
+        // TODO: Redirect to other view
+    }
+    
+    
 }

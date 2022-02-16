@@ -148,9 +148,7 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier, for: indexPath)
                         as? ExchangesTableViewCell
         cell?.displayExchangeData(for: exchanges[indexPath.row])
-        cell?.onClicked = {
-            print("TODO: Show modal")
-        }
+        cell?.delegate = self
         return cell!
     }
 
@@ -163,4 +161,10 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
         return ExchangesTableViewCell.identifier
     }
 
+}
+
+extension HomeViewController: ExchangesTableViewCellDelegate {
+    func onClicked(exchangeId: String) {
+        // TODO: Navifate to other view
+    }
 }
