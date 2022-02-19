@@ -27,9 +27,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="160" height="135"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic.main" translatesAutoresizingMaskIntoConstraints="NO" id="iCL-FZ-pjO">
-                                <rect key="frame" x="85" y="60" width="100" height="100"/>
+                                <rect key="frame" x="104" y="79" width="81" height="81"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="qPa-Pa-M4T"/>
                                     <constraint firstAttribute="width" secondItem="iCL-FZ-pjO" secondAttribute="height" multiplier="1:1" id="tYv-HD-QL9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -66,6 +65,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wCR-XO-cH3" secondAttribute="bottom" id="0Xf-j5-nak"/>
+                            <constraint firstItem="iCL-FZ-pjO" firstAttribute="height" secondItem="28D-Jc-Juy" secondAttribute="height" multiplier="0.6" id="9FJ-CJ-XDg"/>
                             <constraint firstAttribute="bottom" secondItem="iCL-FZ-pjO" secondAttribute="bottom" constant="-25" id="Bd2-xo-7Uk"/>
                             <constraint firstAttribute="trailing" secondItem="wCR-XO-cH3" secondAttribute="trailing" id="cA6-l4-JsC"/>
                             <constraint firstItem="wCR-XO-cH3" firstAttribute="leading" secondItem="28D-Jc-Juy" secondAttribute="leading" id="gAs-hc-2Tt"/>
