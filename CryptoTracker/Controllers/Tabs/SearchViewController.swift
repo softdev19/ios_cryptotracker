@@ -53,6 +53,7 @@ class SearchViewController: UIViewController {
         imageView.tintColor = UIColor(named: "MainColor")
         searchTextField.leadingView = imageView
         searchTextField.leadingViewMode = .always
+        searchTextField.delegate = self
     }
 
     private func setupCollectionView() {
@@ -75,6 +76,26 @@ class SearchViewController: UIViewController {
             DispatchQueue.main.async {
                 self.coins = coinList.data!.coins
                 self.collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+            }
+        }
+    }
+    
+    private func filterResults(_ query: String) {
+        showSkeletonView()
+        DispatchQueue.global(qos: .userInitiated).async {
+            CoinQuery.searchForCoins(query: query) { response in
+                guard let coins = response else {
+                    return
+                }
+                
+                if coins.status != "success" {
+                    return
+                }
+                
+                self.coins = coins.data!.coins
+                DispatchQueue.main.async {
+                    self.collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+                }
             }
         }
     }
@@ -116,5 +137,17 @@ extension SearchViewController: UICollectionViewDelegate,
 extension SearchViewController: CoinCollectionViewCellDelegate {
     func onClicked(coindId: String) {
         // TODO: Redirect to other view
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else {
+            return false
+        }
+        textField.resignFirstResponder()
+        filterResults(text)
+
+        return true
     }
 }
