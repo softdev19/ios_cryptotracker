@@ -83,7 +83,7 @@ class SearchViewController: UIViewController {
     private func filterResults(_ query: String) {
         showSkeletonView()
         DispatchQueue.global(qos: .userInitiated).async {
-            CoinQuery.searchForCoins(query: query) { response in
+            CoinList.searchForCoins(query: query) { response in
                 guard let coins = response else {
                     return
                 }

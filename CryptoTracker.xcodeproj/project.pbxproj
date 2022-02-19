@@ -13,7 +13,6 @@
 		A42CBFB927AB7BC50069FC45 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */; };
 		A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */; };
 		A42CBFBD27AB7D0E0069FC45 /* WatchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */; };
-		A44154E827C077E0004C5080 /* CoinQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44154E727C077E0004C5080 /* CoinQuery.swift */; };
 		A44E5B6527B862E0009A9149 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E5B6427B862E0009A9149 /* Exchange.swift */; };
 		A44E5B6A27B86B1D009A9149 /* ExchangesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E5B6927B86B1D009A9149 /* ExchangesList.swift */; };
 		A48207BB27B97DC90008B8DD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48207BA27B97DC90008B8DD /* Coin.swift */; };
@@ -52,7 +51,6 @@
 		A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchListViewController.xib; sourceTree = "<group>"; };
-		A44154E727C077E0004C5080 /* CoinQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinQuery.swift; sourceTree = "<group>"; };
 		A44E5B6427B862E0009A9149 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		A44E5B6927B86B1D009A9149 /* ExchangesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesList.swift; sourceTree = "<group>"; };
 		A48207BA27B97DC90008B8DD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 				A48207BA27B97DC90008B8DD /* Coin.swift */,
 				A48207BC27B980EC0008B8DD /* CoinList.swift */,
 				A4D4AD4A27BC83E1006EB668 /* FavoriteCoin.swift */,
-				A44154E727C077E0004C5080 /* CoinQuery.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				A495186E27B3761700917DD9 /* WatchListTableViewCell.swift in Sources */,
 				A44E5B6527B862E0009A9149 /* Exchange.swift in Sources */,
 				A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */,
-				A44154E827C077E0004C5080 /* CoinQuery.swift in Sources */,
 				A44E5B6A27B86B1D009A9149 /* ExchangesList.swift in Sources */,
 				A484A15E27B4C0C8007CC3FC /* API.swift in Sources */,
 				A4DD9CCB27A8E7C80006CA6E /* HomeViewController.swift in Sources */,

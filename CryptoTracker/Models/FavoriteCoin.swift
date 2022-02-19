@@ -15,7 +15,7 @@ class FavoriteCoin: Object {
     @Persisted var coinPrice: String!
     @Persisted var coinImg: String!
     @Persisted var coinUUID: String!
-    
+
     func incrementId() -> Int {
         let realm = try! Realm()
         return (realm.objects(FavoriteCoin.self).max(ofProperty: "id") as Int? ?? 0) + 1

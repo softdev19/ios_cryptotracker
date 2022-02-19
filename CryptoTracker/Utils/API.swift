@@ -44,7 +44,7 @@ class API {
         requestGet(url: url, headers: coinRankingHeaders, parameters: nil, completion: completion)
     }
 
-    public func searchForCoins(query: String, completion: @escaping (_ response: GenericResponse<CoinQuery>?) -> Void) {
+    public func searchForCoins(query: String, completion: @escaping (_ response: GenericResponse<CoinList>?) -> Void) {
         let url = "\(coinRankingBaseUrl)search-suggestions?query=\(query)"
         requestGet(url: url, headers: coinRankingHeaders, parameters: nil, completion: completion)
     }
