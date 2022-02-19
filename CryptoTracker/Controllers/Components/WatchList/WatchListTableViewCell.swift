@@ -8,6 +8,10 @@
 import UIKit
 import MaterialComponents.MDCCard
 
+protocol WatchListTableViewCellDelegate {
+    func onClicked(coinId: String)
+}
+
 class WatchListTableViewCell: UITableViewCell {
 
     static let identifier = "WatchListTableViewCell"
@@ -16,6 +20,9 @@ class WatchListTableViewCell: UITableViewCell {
     @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var coinLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var coinImage: UIImageView!
+
+    public var delegate: WatchListTableViewCellDelegate?
     
     private var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
@@ -39,10 +46,11 @@ class WatchListTableViewCell: UITableViewCell {
         gradient.frame = CGRect(x: 0, y: 0, width: 500, height: 200)
         gradientView.layer.insertSublayer(gradient, at: 0)
         gradientView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onTap)))
+        coinImage.layer.cornerRadius = coinImage.bounds.height / 2
     }
-    
+
     @objc private func onTap() {
-        onClicked()
+        delegate?.onClicked(coinId: "Hola")
     }
 
 }

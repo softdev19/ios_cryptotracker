@@ -8,14 +8,21 @@
 import UIKit
 import MaterialComponents.MDCCard
 
+protocol CoinCollectionViewCellDelegate {
+    func onClicked(coindId: String)
+}
+
 class CoinCollectionViewCell: UICollectionViewCell {
 
     static let identifier = "CoinCollectionViewCell"
 
     @IBOutlet weak var cardView: MDCCard!
     @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var coinImage: UIImageView!
+    @IBOutlet weak var coinNameLbl: UILabel!
     
-    public var onClicked: (() -> Void)!
+    public var delegate: CoinCollectionViewCellDelegate?
+    public var coindId: String!
 
     private var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
@@ -30,16 +37,33 @@ class CoinCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
+    }
+
+    private func setupUI() {
         cardView.layer.masksToBounds = true
         cardView.cornerRadius = 20
+        coinImage.layer.cornerRadius = coinImage.bounds.height / 2
         gradient.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
         gradientView.layer.insertSublayer(gradient, at: 0)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap))
         gradientView.addGestureRecognizer(tapGesture)
     }
 
+    func displayData(name: String?, imgUrl: String?) {
+
+        guard let name = name,
+              let imgUrl = imgUrl,
+              let url = URL(string: imgUrl) else {
+                  return
+              }
+
+        coinNameLbl.text = name
+        coinImage.sd_setImage(with: url)
+    }
+
     @objc private func didTap() {
-        onClicked()
+        delegate?.onClicked(coindId: coindId)
     }
 
 }

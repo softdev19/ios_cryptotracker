@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         numberFormatter.decimalSeparator = ","
         return numberFormatter
     }()
-    private var exchanges: [Exchange]! = []
+    private var exchanges = [Exchange]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,8 +108,10 @@ class HomeViewController: UIViewController {
                 return
             }
 
-            self.exchanges = exchanges.data?.exchanges
-            self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+            DispatchQueue.main.async {
+                self.exchanges = exchanges.data!.exchanges
+                self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+            }
         }
     }
 
@@ -146,9 +148,7 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier, for: indexPath)
                         as? ExchangesTableViewCell
         cell?.displayExchangeData(for: exchanges[indexPath.row])
-        cell?.onClicked = {
-            print("TODO: Show modal")
-        }
+        cell?.delegate = self
         return cell!
     }
 
@@ -161,4 +161,10 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
         return ExchangesTableViewCell.identifier
     }
 
+}
+
+extension HomeViewController: ExchangesTableViewCellDelegate {
+    func onClicked(exchangeId: String) {
+        // TODO: Navifate to other view
+    }
 }

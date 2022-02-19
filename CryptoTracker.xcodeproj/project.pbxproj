@@ -13,8 +13,11 @@
 		A42CBFB927AB7BC50069FC45 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */; };
 		A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */; };
 		A42CBFBD27AB7D0E0069FC45 /* WatchListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */; };
+		A44154E827C077E0004C5080 /* CoinQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44154E727C077E0004C5080 /* CoinQuery.swift */; };
 		A44E5B6527B862E0009A9149 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E5B6427B862E0009A9149 /* Exchange.swift */; };
 		A44E5B6A27B86B1D009A9149 /* ExchangesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44E5B6927B86B1D009A9149 /* ExchangesList.swift */; };
+		A48207BB27B97DC90008B8DD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48207BA27B97DC90008B8DD /* Coin.swift */; };
+		A48207BD27B980EC0008B8DD /* CoinList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48207BC27B980EC0008B8DD /* CoinList.swift */; };
 		A484A15E27B4C0C8007CC3FC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484A15D27B4C0C8007CC3FC /* API.swift */; };
 		A484A16027B4C793007CC3FC /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484A15F27B4C793007CC3FC /* GenericResponse.swift */; };
 		A484A16227B4C863007CC3FC /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = A484A16127B4C863007CC3FC /* Stats.swift */; };
@@ -22,6 +25,7 @@
 		A495186F27B3761700917DD9 /* WatchListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A495186D27B3761700917DD9 /* WatchListTableViewCell.xib */; };
 		A4982BC027AF448400767D0F /* ExchangesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4982BBE27AF448400767D0F /* ExchangesTableViewCell.swift */; };
 		A4982BC127AF448400767D0F /* ExchangesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4982BBF27AF448400767D0F /* ExchangesTableViewCell.xib */; };
+		A4D4AD4B27BC83E1006EB668 /* FavoriteCoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D4AD4A27BC83E1006EB668 /* FavoriteCoin.swift */; };
 		A4DD9CAF27A8E4DF0006CA6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD9CAE27A8E4DF0006CA6E /* AppDelegate.swift */; };
 		A4DD9CB827A8E4E00006CA6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4DD9CB727A8E4E00006CA6E /* Assets.xcassets */; };
 		A4DD9CBB27A8E4E00006CA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4DD9CB927A8E4E00006CA6E /* LaunchScreen.storyboard */; };
@@ -48,8 +52,11 @@
 		A42CBFB727AB7BC50069FC45 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		A42CBFBA27AB7D0E0069FC45 /* WatchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchListViewController.swift; sourceTree = "<group>"; };
 		A42CBFBB27AB7D0E0069FC45 /* WatchListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchListViewController.xib; sourceTree = "<group>"; };
+		A44154E727C077E0004C5080 /* CoinQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinQuery.swift; sourceTree = "<group>"; };
 		A44E5B6427B862E0009A9149 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		A44E5B6927B86B1D009A9149 /* ExchangesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesList.swift; sourceTree = "<group>"; };
+		A48207BA27B97DC90008B8DD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		A48207BC27B980EC0008B8DD /* CoinList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinList.swift; sourceTree = "<group>"; };
 		A484A15D27B4C0C8007CC3FC /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A484A15F27B4C793007CC3FC /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
 		A484A16127B4C863007CC3FC /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
@@ -57,6 +64,7 @@
 		A495186D27B3761700917DD9 /* WatchListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WatchListTableViewCell.xib; sourceTree = "<group>"; };
 		A4982BBE27AF448400767D0F /* ExchangesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangesTableViewCell.swift; sourceTree = "<group>"; };
 		A4982BBF27AF448400767D0F /* ExchangesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExchangesTableViewCell.xib; sourceTree = "<group>"; };
+		A4D4AD4A27BC83E1006EB668 /* FavoriteCoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCoin.swift; sourceTree = "<group>"; };
 		A4DD9CAB27A8E4DF0006CA6E /* CryptoTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DD9CAE27A8E4DF0006CA6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4DD9CB727A8E4E00006CA6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -207,6 +215,10 @@
 				A484A16127B4C863007CC3FC /* Stats.swift */,
 				A44E5B6427B862E0009A9149 /* Exchange.swift */,
 				A44E5B6927B86B1D009A9149 /* ExchangesList.swift */,
+				A48207BA27B97DC90008B8DD /* Coin.swift */,
+				A48207BC27B980EC0008B8DD /* CoinList.swift */,
+				A4D4AD4A27BC83E1006EB668 /* FavoriteCoin.swift */,
+				A44154E727C077E0004C5080 /* CoinQuery.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -437,13 +449,17 @@
 				A484A16027B4C793007CC3FC /* GenericResponse.swift in Sources */,
 				A484A16227B4C863007CC3FC /* Stats.swift in Sources */,
 				A42CBFB827AB7BC50069FC45 /* SearchViewController.swift in Sources */,
+				A48207BD27B980EC0008B8DD /* CoinList.swift in Sources */,
 				A42CBFAD27AB745E0069FC45 /* UIUtils.swift in Sources */,
 				A4982BC027AF448400767D0F /* ExchangesTableViewCell.swift in Sources */,
+				A4D4AD4B27BC83E1006EB668 /* FavoriteCoin.swift in Sources */,
 				A4F1E65A27B060CF0098C96E /* CoinCollectionViewCell.swift in Sources */,
+				A48207BB27B97DC90008B8DD /* Coin.swift in Sources */,
 				A4DD9CAF27A8E4DF0006CA6E /* AppDelegate.swift in Sources */,
 				A495186E27B3761700917DD9 /* WatchListTableViewCell.swift in Sources */,
 				A44E5B6527B862E0009A9149 /* Exchange.swift in Sources */,
 				A42CBFBC27AB7D0E0069FC45 /* WatchListViewController.swift in Sources */,
+				A44154E827C077E0004C5080 /* CoinQuery.swift in Sources */,
 				A44E5B6A27B86B1D009A9149 /* ExchangesList.swift in Sources */,
 				A484A15E27B4C0C8007CC3FC /* API.swift in Sources */,
 				A4DD9CCB27A8E7C80006CA6E /* HomeViewController.swift in Sources */,

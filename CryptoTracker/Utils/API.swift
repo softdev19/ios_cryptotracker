@@ -14,7 +14,7 @@ class API {
 
     let coinRankingBaseUrl: String = "https://api.coinranking.com/v2/"
     let rapidApiBaseUrl: String = "https://coinranking1.p.rapidapi.com/"
-    
+
     let coinRankingHeaders: HTTPHeaders = [
         "x-access-token": "coinranking8b2327adeb90d342ee607da8b08f4f695318ade2e7ffaa73"
     ]
@@ -37,6 +37,16 @@ class API {
         ]
 
         requestGet(url: url, headers: rapidApidHeaders, parameters: parameters, completion: completion)
+    }
+
+    public func fetchCoins(completion: @escaping (_ response: GenericResponse<CoinList>?) -> Void) {
+        let url = "\(coinRankingBaseUrl)coins"
+        requestGet(url: url, headers: coinRankingHeaders, parameters: nil, completion: completion)
+    }
+
+    public func searchForCoins(query: String, completion: @escaping (_ response: GenericResponse<CoinQuery>?) -> Void) {
+        let url = "\(coinRankingBaseUrl)search-suggestions?query=\(query)"
+        requestGet(url: url, headers: coinRankingHeaders, parameters: nil, completion: completion)
     }
 
     private func requestGet<T>(url: String,
