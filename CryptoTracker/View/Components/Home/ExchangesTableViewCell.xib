@@ -19,55 +19,60 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExchangesTableViewCell" rowHeight="112" id="KGk-i7-Jjw" customClass="ExchangesTableViewCell" customModule="CryptoTracker" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="357" height="112"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExchangesTableViewCell" rowHeight="133" id="KGk-i7-Jjw" customClass="ExchangesTableViewCell" customModule="CryptoTracker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="358" height="133"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="357" height="112"/>
+                <rect key="frame" x="0.0" y="0.0" width="358" height="133"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzX-jF-1Yd" customClass="MDCCard">
-                        <rect key="frame" x="5" y="5" width="342" height="99"/>
+                        <rect key="frame" x="5" y="5" width="343" height="123"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic.main" translatesAutoresizingMaskIntoConstraints="NO" id="BwC-mo-eak">
-                                <rect key="frame" x="10" y="24.5" width="50" height="50"/>
+                                <rect key="frame" x="10" y="36" width="51.5" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Aze-tl-2uS"/>
-                                    <constraint firstAttribute="width" secondItem="BwC-mo-eak" secondAttribute="height" multiplier="1:1" id="aTA-Mn-xZT"/>
+                                    <constraint firstAttribute="width" secondItem="BwC-mo-eak" secondAttribute="height" multiplier="1:1" id="MTZ-d1-o4r"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchange name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKC-xZ-6bH">
-                                <rect key="frame" x="90" y="24.5" width="133" height="22.5"/>
-                                <fontDescription key="fontDescription" name="RobotoMono-Bold" family="Roboto Mono" pointSize="17"/>
-                                <color key="textColor" name="TextColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for more info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vec-n8-Jod">
-                                <rect key="frame" x="90" y="58.5" width="122.5" height="16"/>
-                                <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="12"/>
-                                <color key="textColor" name="TextColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0ZO-rd-3pN">
+                                <rect key="frame" x="81.5" y="39" width="133" height="45"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchange Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjF-dV-Pu6">
+                                        <rect key="frame" x="0.0" y="0.0" width="133" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="RobotoMono-Bold" family="Roboto Mono" pointSize="17"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap for more info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da9-ZM-qO7">
+                                        <rect key="frame" x="0.0" y="22.5" width="133" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="RobotoMono-Medium" family="Roboto Mono" pointSize="12"/>
+                                        <color key="textColor" name="TextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="MainColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="BwC-mo-eak" secondAttribute="bottom" constant="24.5" id="3g7-78-Y54"/>
-                            <constraint firstItem="BwC-mo-eak" firstAttribute="leading" secondItem="kzX-jF-1Yd" secondAttribute="leading" constant="10" id="5aT-jm-Mxk"/>
-                            <constraint firstItem="vec-n8-Jod" firstAttribute="leading" secondItem="BwC-mo-eak" secondAttribute="trailing" constant="30" id="K8O-cu-Yai"/>
-                            <constraint firstItem="vec-n8-Jod" firstAttribute="bottom" secondItem="BwC-mo-eak" secondAttribute="bottom" id="etw-sq-fqA"/>
-                            <constraint firstItem="BwC-mo-eak" firstAttribute="top" secondItem="kzX-jF-1Yd" secondAttribute="top" constant="24.5" id="f2J-Mt-4sU"/>
-                            <constraint firstItem="BwC-mo-eak" firstAttribute="centerY" secondItem="kzX-jF-1Yd" secondAttribute="centerY" id="rLS-13-B6d"/>
-                            <constraint firstItem="qKC-xZ-6bH" firstAttribute="leading" secondItem="BwC-mo-eak" secondAttribute="trailing" constant="30" id="rT7-EF-APc"/>
-                            <constraint firstItem="qKC-xZ-6bH" firstAttribute="top" secondItem="BwC-mo-eak" secondAttribute="top" id="vCV-1p-baq"/>
+                            <constraint firstItem="BwC-mo-eak" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kzX-jF-1Yd" secondAttribute="top" constant="10" id="ClQ-YU-K7Z"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BwC-mo-eak" secondAttribute="bottom" constant="10" id="PN8-wG-RqT"/>
+                            <constraint firstItem="BwC-mo-eak" firstAttribute="leading" secondItem="kzX-jF-1Yd" secondAttribute="leading" constant="10" id="RfC-gy-jJw"/>
+                            <constraint firstItem="0ZO-rd-3pN" firstAttribute="centerY" secondItem="kzX-jF-1Yd" secondAttribute="centerY" id="Rnp-uU-1d8"/>
+                            <constraint firstItem="0ZO-rd-3pN" firstAttribute="leading" secondItem="BwC-mo-eak" secondAttribute="trailing" constant="20" id="YA0-VU-rHA"/>
+                            <constraint firstItem="BwC-mo-eak" firstAttribute="width" secondItem="kzX-jF-1Yd" secondAttribute="width" multiplier="0.15" id="ZPV-pI-cXb"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="0ZO-rd-3pN" secondAttribute="bottom" constant="10" id="fgV-HG-ttq"/>
+                            <constraint firstItem="BwC-mo-eak" firstAttribute="centerY" secondItem="0ZO-rd-3pN" secondAttribute="centerY" id="gLh-TV-K8w"/>
+                            <constraint firstItem="0ZO-rd-3pN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kzX-jF-1Yd" secondAttribute="top" constant="10" id="qg2-HR-dNY"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -91,10 +96,10 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="cardView" destination="kzX-jF-1Yd" id="TJt-h6-p1K"/>
-                <outlet property="exchangeImg" destination="BwC-mo-eak" id="MHh-6p-zLK"/>
-                <outlet property="exchangeNameLbl" destination="qKC-xZ-6bH" id="GPP-lk-TxG"/>
+                <outlet property="exchangeImg" destination="BwC-mo-eak" id="AFX-c6-m6E"/>
+                <outlet property="exchangeNameLbl" destination="bjF-dV-Pu6" id="DhK-Ue-NTw"/>
             </connections>
-            <point key="canvasLocation" x="177.536231884058" y="82.366071428571431"/>
+            <point key="canvasLocation" x="172.46376811594203" y="97.433035714285708"/>
         </tableViewCell>
     </objects>
     <resources>
