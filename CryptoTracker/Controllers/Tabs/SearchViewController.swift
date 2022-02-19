@@ -79,7 +79,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
+
     private func filterResults(_ query: String) {
         showSkeletonView()
         DispatchQueue.global(qos: .userInitiated).async {
@@ -87,11 +87,11 @@ class SearchViewController: UIViewController {
                 guard let coins = response else {
                     return
                 }
-                
+
                 if coins.status != "success" {
                     return
                 }
-                
+
                 self.coins = coins.data!.coins
                 DispatchQueue.main.async {
                     self.collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
