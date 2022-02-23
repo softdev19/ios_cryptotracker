@@ -23,6 +23,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var exchangesLbl: EFCountingLabel!
     @IBOutlet weak var marketCapLbl: EFCountingLabel!
     @IBOutlet weak var lastDayVolume: EFCountingLabel!
+    
+    let homeViewModel = HomeViewModel()
 
     private let formatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
@@ -30,12 +32,12 @@ class HomeViewController: UIViewController {
         numberFormatter.decimalSeparator = ","
         return numberFormatter
     }()
-    private var exchanges = [Exchange]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCards()
         setupTable()
+        bindData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,10 +45,27 @@ class HomeViewController: UIViewController {
         self.navigationController?.topViewController?.title = "Home"
         showSkeletonView()
         DispatchQueue.global(qos: .userInitiated).async {
-            self.fetchStats()
+            self.homeViewModel.fetchStats()
         }
         DispatchQueue.global(qos: .userInitiated).async {
-            self.fetchExchanges()
+            self.homeViewModel.fetchExchanges()
+        }
+    }
+
+    private func bindData() {
+        homeViewModel.exchanges.bind { exchanges in
+            if let exchanges = exchanges {
+                DispatchQueue.main.async {
+                    self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+                }
+            }
+        }
+        homeViewModel.stats.bind { stats in
+            if let stats = stats {
+                DispatchQueue.main.async {
+                    self.showData(for: stats)
+                }
+            }
         }
     }
 
@@ -84,37 +103,6 @@ class HomeViewController: UIViewController {
                            forCellReuseIdentifier: ExchangesTableViewCell.identifier)
     }
 
-    private func fetchStats() {
-        Stats.fetchStats { response in
-            guard let stats = response else {return}
-
-            if stats.status != "success" {
-                return
-            }
-
-            DispatchQueue.main.async {
-                self.showData(for: stats.data!)
-            }
-        }
-    }
-
-    private func fetchExchanges() {
-        ExchangesList.fetchExchanges { response in
-            guard let exchanges = response else {
-                return
-            }
-
-            if exchanges.status != "success" {
-                return
-            }
-
-            DispatchQueue.main.async {
-                self.exchanges = exchanges.data!.exchanges
-                self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
-            }
-        }
-    }
-
     private func showData(for stats: Stats) {
 
         guard let totalCoins = stats.totalCoins,
@@ -147,13 +135,13 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier, for: indexPath)
                         as? ExchangesTableViewCell
-        cell?.displayExchangeData(for: exchanges[indexPath.row])
+        cell?.displayExchangeData(for: (homeViewModel.exchanges.value?.exchanges?[indexPath.row])!)
         cell?.delegate = self
         return cell!
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return exchanges.count
+        return homeViewModel.exchanges.value?.exchanges.count ?? 0
     }
 
     func collectionSkeletonView(_ skeletonView: UITableView,
