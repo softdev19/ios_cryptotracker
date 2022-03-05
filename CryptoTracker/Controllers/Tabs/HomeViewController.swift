@@ -4,6 +4,7 @@
 //
 //  Created by Uriel Hernandez Gonzalez on 31/01/22.
 //
+// swiftlint:disable force_cast
 
 import UIKit
 import MaterialComponents.MaterialCards
@@ -23,7 +24,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var exchangesLbl: EFCountingLabel!
     @IBOutlet weak var marketCapLbl: EFCountingLabel!
     @IBOutlet weak var lastDayVolume: EFCountingLabel!
-    
+
     let homeViewModel = HomeViewModel()
 
     private let formatter: NumberFormatter = {
@@ -54,16 +55,16 @@ class HomeViewController: UIViewController {
 
     private func bindData() {
         homeViewModel.exchanges.bind { exchanges in
-            if let exchanges = exchanges {
+            if exchanges != nil {
                 DispatchQueue.main.async {
                     self.tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
                 }
             }
         }
         homeViewModel.stats.bind { stats in
-            if let stats = stats {
+            if stats != nil {
                 DispatchQueue.main.async {
-                    self.showData(for: stats)
+                    self.showData()
                 }
             }
         }
@@ -103,22 +104,16 @@ class HomeViewController: UIViewController {
                            forCellReuseIdentifier: ExchangesTableViewCell.identifier)
     }
 
-    private func showData(for stats: Stats) {
+    private func showData() {
 
-        guard let totalCoins = stats.totalCoins,
-              let totalMarkets = stats.totalMarkets,
-              let exchanges = stats.totalExchanges,
-              let marketCap = stats.totalMarketCap,
-              let lastDayVolumeStat = stats.lastDayVolume else {
-                  return
-              }
+        let statsData = homeViewModel.getStatsData()
 
         hideSkeletonView()
-        coinsLbl.countFromZeroTo(CGFloat(totalCoins), withDuration: 0.7)
-        marketsLbl.countFromZeroTo(CGFloat(totalMarkets), withDuration: 0.7)
-        exchangesLbl.countFromZeroTo(CGFloat(exchanges), withDuration: 0.7)
-        marketCapLbl.countFromZeroTo(CGFloat(formatter.number(from: marketCap)!), withDuration: 0.7)
-        lastDayVolume.countFromZeroTo(CGFloat(formatter.number(from: lastDayVolumeStat)!), withDuration: 0.7)
+        coinsLbl.countFromZeroTo(CGFloat(statsData.totalCoins), withDuration: 0.7)
+        marketsLbl.countFromZeroTo(CGFloat(statsData.totalMarkets), withDuration: 0.7)
+        exchangesLbl.countFromZeroTo(CGFloat(statsData.totalExchanges), withDuration: 0.7)
+        marketCapLbl.countFromZeroTo(CGFloat(formatter.number(from: statsData.totalMarketCap)!), withDuration: 0.7)
+        lastDayVolume.countFromZeroTo(CGFloat(formatter.number(from: statsData.lastDayVolume)!), withDuration: 0.7)
 
         for label in [coinsLbl, marketsLbl, exchangesLbl, marketCapLbl, lastDayVolume] {
             label?.setUpdateBlock({ value, sender in
