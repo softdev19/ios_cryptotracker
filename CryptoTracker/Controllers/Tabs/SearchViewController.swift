@@ -18,10 +18,11 @@ class SearchViewController: UIViewController {
     private let collectionInsets: CGFloat = 10
     private let collectionSideContraints: CGFloat = 20
     private var screenWidth: CGFloat = UIScreen.main.bounds.width
-    private var coins = [Coin]()
+    let searchViewModel = SearchViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindData()
         setupSearchField()
         setupCollectionView()
     }
@@ -31,19 +32,24 @@ class SearchViewController: UIViewController {
         self.navigationController?.topViewController?.title = "Search a Coin"
         showSkeletonView()
         DispatchQueue.global(qos: .userInitiated).async {
-            self.fetchCoins()
+            self.searchViewModel.fetchCoins()
+        }
+    }
+}
+
+// MARK: - Extensions
+private extension SearchViewController {
+    func bindData() {
+        searchViewModel.coins.bind { coins in
+            if coins != nil {
+                DispatchQueue.main.async {
+                    self.collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
+                }
+            }
         }
     }
 
-    private func showSkeletonView() {
-        collectionView.showGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "MainColor")!,
-                                                                 secondaryColor: UIColor(named: "SecondaryColor")!),
-                                                                 animated: true,
-                                                                 delay: 0,
-                                                                 transition: .crossDissolve(0.25))
-    }
-
-    private func setupSearchField() {
+    func setupSearchField() {
         searchTextField.label.text = "Search"
         searchTextField.setOutlineColor(UIColor(named: "MainColor")!, for: .normal)
         searchTextField.setOutlineColor(UIColor(named: "MainColor")!, for: .editing)
@@ -56,52 +62,23 @@ class SearchViewController: UIViewController {
         searchTextField.delegate = self
     }
 
-    private func setupCollectionView() {
+    func setupCollectionView() {
         collectionView.register(UINib(nibName: CoinCollectionViewCell.identifier, bundle: nil),
                                 forCellWithReuseIdentifier: CoinCollectionViewCell.identifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
 
-    private func fetchCoins() {
-        CoinList.fetchCoins { response in
-            guard let coinList = response else {
-                return
-            }
-
-            if coinList.status != "success" {
-                return
-            }
-
-            DispatchQueue.main.async {
-                self.coins = coinList.data!.coins
-                self.collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
-            }
-        }
-    }
-
-    private func filterResults(_ query: String) {
-        showSkeletonView()
-        DispatchQueue.global(qos: .userInitiated).async {
-            CoinList.searchForCoins(query: query) { response in
-                guard let coins = response else {
-                    return
-                }
-
-                if coins.status != "success" {
-                    return
-                }
-
-                self.coins = coins.data!.coins
-                DispatchQueue.main.async {
-                    self.collectionView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
-                }
-            }
-        }
+    func showSkeletonView() {
+        collectionView.showGradientSkeleton(usingGradient: .init(baseColor: UIColor(named: "MainColor")!,
+                                                                 secondaryColor: UIColor(named: "SecondaryColor")!),
+                                                                 animated: true,
+                                                                 delay: 0,
+                                                                 transition: .crossDissolve(0.25))
     }
 }
 
-// MARK: - Extensions
+// MARK: - Delegates
 extension SearchViewController: UICollectionViewDelegate,
                                     SkeletonCollectionViewDataSource,
                                 UICollectionViewDelegateFlowLayout {
@@ -111,7 +88,7 @@ extension SearchViewController: UICollectionViewDelegate,
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return coins.count
+        return searchViewModel.coins.value?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -119,8 +96,9 @@ extension SearchViewController: UICollectionViewDelegate,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinCollectionViewCell.identifier,
                                                       for: indexPath) as? CoinCollectionViewCell
         cell?.delegate = self
-        cell?.coindId = coins[indexPath.row].uuid!
-        cell?.displayData(name: coins[indexPath.row].name, imgUrl: coins[indexPath.row].iconUrl)
+        cell?.coindId = searchViewModel.coins.value![indexPath.row].uuid
+        cell?.displayData(name: searchViewModel.coins.value![indexPath.row].name,
+                          imgUrl: searchViewModel.coins.value![indexPath.row].iconUrl)
         return cell!
     }
 
@@ -146,7 +124,13 @@ extension SearchViewController: UITextFieldDelegate {
             return false
         }
         textField.resignFirstResponder()
-        filterResults(text)
+        showSkeletonView()
+
+        if text.isEmpty {
+            searchViewModel.fetchCoins()
+        } else {
+            searchViewModel.filterResults(query: text)
+        }
 
         return true
     }
