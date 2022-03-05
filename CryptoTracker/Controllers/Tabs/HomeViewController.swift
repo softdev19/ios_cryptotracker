@@ -100,8 +100,8 @@ class HomeViewController: UIViewController {
         tableView.allowsSelection = false
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
-        tableView.register(UINib(nibName: "ExchangesTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: ExchangesTableViewCell.identifier)
+        tableView.register(ExchangesTableViewCell.nibName,
+                           forCellReuseIdentifier: ExchangesTableViewCell.viewIdentifier)
     }
 
     private func showData() {
@@ -128,7 +128,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: ExchangesTableViewCell.viewIdentifier, for: indexPath)
                         as? ExchangesTableViewCell
         cell?.displayExchangeData(for: (homeViewModel.exchanges.value?.exchanges?[indexPath.row])!)
         cell?.delegate = self
@@ -141,7 +141,7 @@ extension HomeViewController: UITableViewDelegate, SkeletonTableViewDataSource {
 
     func collectionSkeletonView(_ skeletonView: UITableView,
                                 cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return ExchangesTableViewCell.identifier
+        return ExchangesTableViewCell.viewIdentifier
     }
 
 }

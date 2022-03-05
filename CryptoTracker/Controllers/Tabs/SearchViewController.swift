@@ -63,8 +63,8 @@ private extension SearchViewController {
     }
 
     func setupCollectionView() {
-        collectionView.register(UINib(nibName: CoinCollectionViewCell.identifier, bundle: nil),
-                                forCellWithReuseIdentifier: CoinCollectionViewCell.identifier)
+        collectionView.register(CoinCollectionViewCell.nibName,
+                                forCellWithReuseIdentifier: CoinCollectionViewCell.viewIdentifier)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -84,7 +84,7 @@ extension SearchViewController: UICollectionViewDelegate,
                                 UICollectionViewDelegateFlowLayout {
 
     func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return CoinCollectionViewCell.identifier
+        return CoinCollectionViewCell.viewIdentifier
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -93,7 +93,7 @@ extension SearchViewController: UICollectionViewDelegate,
 
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinCollectionViewCell.identifier,
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CoinCollectionViewCell.viewIdentifier,
                                                       for: indexPath) as? CoinCollectionViewCell
         cell?.delegate = self
         cell?.coindId = searchViewModel.coins.value![indexPath.row].uuid

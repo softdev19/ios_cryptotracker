@@ -12,9 +12,7 @@ protocol WatchListTableViewCellDelegate {
     func onClicked(coinId: String)
 }
 
-class WatchListTableViewCell: UITableViewCell {
-
-    static let identifier = "WatchListTableViewCell"
+class WatchListTableViewCell: UITableViewCell, ReuseView {
 
     @IBOutlet weak var cardView: MDCCard!
     @IBOutlet weak var gradientView: UIView!
@@ -23,7 +21,7 @@ class WatchListTableViewCell: UITableViewCell {
     @IBOutlet weak var coinImage: UIImageView!
 
     public var delegate: WatchListTableViewCellDelegate?
-    
+
     private var gradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
         gradient.type = .axial
