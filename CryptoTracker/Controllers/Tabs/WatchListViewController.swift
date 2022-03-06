@@ -4,7 +4,6 @@
 //
 //  Created by Uriel Hernandez Gonzalez on 02/02/22.
 //
-// swiftlint:disable force_try
 
 import UIKit
 import RealmSwift
@@ -14,22 +13,30 @@ class WatchListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    private var favoriteCoins: Results<FavoriteCoin>?
+    let watchListViewModel = WatchListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.topViewController?.title = "Watchlist"
         showTableSekeleton()
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.fetchFavorites()
-        }
     }
 
+    private func bindData() {
+        watchListViewModel.favoriteCoins.bind { favoriteCoins in
+            if favoriteCoins != nil {
+                DispatchQueue.main.async {
+                    self.removeSkeleton()
+                }
+            }
+        }
+    }
+    
     private func setupUI() {
         tableView.register(WatchListTableViewCell.nibName,
                            forCellReuseIdentifier: WatchListTableViewCell.viewIdentifier)
@@ -52,13 +59,6 @@ class WatchListViewController: UIViewController {
         tableView.hideSkeleton(reloadDataAfter: true, transition: .crossDissolve(0.2))
     }
 
-    private func fetchFavorites() {
-        let realm = try! Realm()
-        favoriteCoins = realm.objects(FavoriteCoin.self)
-        DispatchQueue.main.async {
-            self.removeSkeleton()
-        }
-    }
 
 }
 
