@@ -31,8 +31,8 @@ class WatchListViewController: UIViewController {
     }
 
     private func setupUI() {
-        tableView.register(UINib(nibName: WatchListTableViewCell.identifier, bundle: nil),
-                           forCellReuseIdentifier: WatchListTableViewCell.identifier)
+        tableView.register(WatchListTableViewCell.nibName,
+                           forCellReuseIdentifier: WatchListTableViewCell.viewIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
@@ -71,14 +71,14 @@ extension WatchListViewController: UITableViewDelegate,
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: WatchListTableViewCell.identifier)
+        let cell = tableView.dequeueReusableCell(withIdentifier: WatchListTableViewCell.viewIdentifier)
                             as? WatchListTableViewCell
         cell?.delegate = self
         return cell!
     }
     func collectionSkeletonView(_ skeletonView: UITableView,
                                 cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return WatchListTableViewCell.identifier
+        return WatchListTableViewCell.viewIdentifier
     }
 }
 
